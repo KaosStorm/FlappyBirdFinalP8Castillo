@@ -10,12 +10,11 @@ public class GameController : MonoBehaviour{
     public GameObject gameOverText;
     public bool gameOver = false;
     public float scrollSpeed = -1.5f;
-    public TextMeshProUGUI ScoreText;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (instance == null){
+        if (instance == null) {
             instance = this;
         } else if (instance != this)
         {
@@ -26,7 +25,7 @@ public class GameController : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
-        if (!gameOver == true && Input.GetMouseButtonDown (0)) 
+        if (gameOver == true && Input.GetMouseButtonDown (0)) 
         {
             SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
         }
