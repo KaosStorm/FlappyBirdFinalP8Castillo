@@ -11,7 +11,7 @@ public class ColumnPool : MonoBehaviour
     public float columnMax = 3.5f;
 
     private GameObject[] columns;
-    private Vector2 objectPoolPosition = new Vector2 (-15f, -25f);
+    private Vector2 objectPoolPosition = new Vector2(-15f, -25f);
     private float timesinceLastSpawned;
     private float spawnXPosition = 10f;
     private int currentColumn = 0;
@@ -20,22 +20,22 @@ public class ColumnPool : MonoBehaviour
     void Start()
     {
         columns = new GameObject[colunmPoolSize];
-        for(int i = 0; i < colunmPoolSize; i++)
+        for (int i = 0; i < colunmPoolSize; i++)
         {
-            columns[i] = (GameObject)Instantiate (columnPrefab, objectPoolPosition, Quaternion.identity);
+            columns [i] = (GameObject)Instantiate (columnPrefab, objectPoolPosition, Quaternion.identity);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        timesinceLastSpawned = Time.deltaTime;
+        timesinceLastSpawned += Time.deltaTime;
 
         if (GameController.instance.gameOver == false && timesinceLastSpawned >= spawnRate)
         {
             timesinceLastSpawned = 0;
             float spawnYPosition = Random.Range (columnMin, columnMax);
-            columns [currentColumn].transform.position = new Vector2 (spawnXPosition, spawnYPosition);
+            columns [currentColumn].transform.position = new Vector2(spawnXPosition, spawnYPosition);
             currentColumn++;
             if (currentColumn >= colunmPoolSize)
             {

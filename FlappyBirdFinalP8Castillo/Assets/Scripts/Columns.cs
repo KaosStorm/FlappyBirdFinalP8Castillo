@@ -8,6 +8,7 @@ public class Columns : MonoBehaviour{
         if (other.GetComponent<bird> () != null)
         {
             GameController.instance.BirdScored();
+
         }
     }
 }
